@@ -36,12 +36,13 @@ public class Josephus {
 	public int remove(int k) {
 		Node prevNode=start;
 		Node currentNode=start.next;
-		for(int i=1; i<=k; i++) {
-			currentNode=prevNode.next;
+		for(int i=1; i<k; i++) {
 			prevNode=currentNode;
+			currentNode=prevNode.next;
+			
 		}
 		prevNode.next=currentNode.next;
-		System.out.println(start.next.number);
+		System.out.println();
 		start=prevNode;
 		return currentNode.number;
 	}
